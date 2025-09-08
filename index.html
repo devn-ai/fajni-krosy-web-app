@@ -26,4 +26,21 @@
     </form>
 </div>
 </body>
+  <script>
+    // Приклад товарів
+let cart = [
+  {name: "Товар 1", count: 2, price: 140},
+  {name: "Товар 2", count: 1, price: 90}
+];
+
+function renderCart() {
+  const cartList = document.getElementById('cart-list');
+  cartList.innerHTML = '';
+  cart.forEach(item => {
+    cartList.innerHTML += `<li>${item.name} x${item.count} — ${item.price * item.count}₴</li>`;
+  });
+}
+renderCart();
+
+  </script>
 </html>
