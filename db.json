@@ -18,7 +18,7 @@
     "model": "530",
     "color": "сіро-зелені",
     "price": 2500,
-    "image": "https://img01.ztat.net/article/spp-media-p1/eed6f88a2e1d45129ed71b2dfafc95d5/897fd2f6e53644449b6166fc14ded4b9.jpg?imwidth=762",
+    "image": "https://img01.ztat.net/article/spp-media-p1/eed6f88a2e1d45129ed71b2dfafc95d5/897fd2f6e53644449b6166fc14ded4b9.jpg",
     "variants": [
       { "id": 128, "size": "45" },
       { "id": 129, "size": "44" },
@@ -32,7 +32,7 @@
     "model": "P-6000",
     "color": "cірі",
     "price": 3400,
-    "image": "https://i1.adis.ws/i/jpl/jd_HV5064007_b?w=898&h=637&qlt=90",
+    "image": "https://vzutistore.com.ua/6459-thickbox_default/nike-p-6000-summit-white-pure-platinum.jpg",
     "variants": [{ "id": 133, "size": "45" }]
   },
   {
@@ -40,7 +40,7 @@
     "model": "P-6001",
     "color": "cірі",
     "price": 3400,
-    "image": "https://i1.adis.ws/i/jpl/jd_700602_b?w=898&h=637&qlt=90",
+    "image": "https://img01.ztat.net/article/spp-media-p1/ed4b66f531d64e91bcbb2f484a902305/7ab29fb921ca4f30aab6ccc3a5542f34.jpg",
     "variants": [{ "id": 134, "size": "44" }]
   },
   {
