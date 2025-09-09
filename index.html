@@ -11,6 +11,19 @@
   </style>
 </head>
 <body>
+<button onclick="showCart()">Перейти до кошика</button>
+
+<div id="cart-popup" style="display:none; position:fixed; top:20%; left:30%; background:#fff; border:1px solid #ccc; padding:20px; z-index:1000;">
+  <h3>Ваше замовлення</h3>
+  <div id="cart-items"></div>
+  <form id="order-form">
+    Ім'я: <input type="text" id="customer-name" required /><br />
+    Телефон: <input type="tel" id="customer-phone" required /><br />
+    <button type="submit">Відправити замовлення</button>
+    <button type="button" onclick="hideCart()">Закрити</button>
+  </form>
+</div>
+  
 <div id="product-catalog"></div>
 
   <div class="cart">
@@ -53,9 +66,70 @@ function addToCart(button) {
   // Тут можна реалізувати додавання до кошика у ваш json чи localStorage
   alert(`Додано до кошика товар з id: ${variantId}`);
 }
+    let cart = [];
+
+function addToCart(button) {
+  const card = button.closest('.product-card');
+  const sizeSelect = card.querySelector('.size-select');
+  const variantId = sizeSelect.value;
+
+  const existingItem = cart.find(item => item.id === variantId);
+  if (existingItem) {
+    existingItem.quantity++;
+  } else {
+    cart.push({ id: variantId, quantity: 1 });
+  }
+  alert(`У кошику ${cart.length} товарів`);
+}
+function showCart() {
+  renderCartItems();
+  document.getElementById('cart-popup').style.display = 'block';
+}
+
+function hideCart() {
+  document.getElementById('cart-popup').style.display = 'none';
+}
+
+function renderCartItems() {
+  const container = document.getElementById('cart-items');
+  container.innerHTML = cart.map(item => `<div>Товар ID: ${item.id} Кількість: ${item.quantity}</div>`).join('');
+}
+
 </script>
 
   <script>
+document.getElementById('order-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const name = document.getElementById('customer-name').value.trim();
+  const phone = document.getElementById('customer-phone').value.trim();
+
+  if (!name || !phone) {
+    alert('Будь ласка, заповніть всі поля');
+    return;
+  }
+
+  const orderData = {
+    customer: { name, phone },
+    items: cart
+  };
+
+  fetch('https://hook.eu2.make.com/1ettzvhwvhnmag3f5otfig2ospqw2nd9', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(orderData)
+  })
+    .then(response => {
+      if (response.ok) {
+        alert('Замовлення надіслано!');
+        cart = [];
+        hideCart();
+      } else {
+        alert('Помилка при відправці замовлення');
+      }
+    })
+    .catch(() => alert('Помилка мережі'));
+});
 
 renderCart();
 document.getElementById('checkout-form').onsubmit = function(e) {
