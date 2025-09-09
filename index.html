@@ -11,11 +11,8 @@
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Вітаю в Telegram WebApp!</h1>
-    <p>Це тестова сторінка: ти вже бачиш мій вигляд як "лендінг".</p>
-    <button onclick="Telegram.WebApp.close()">Закрити</button>
-  </div>
+<div id="product-catalog"></div>
+
   <div class="cart">
     <h2>Кошик</h2>
     <ul id="cart-list"></ul>
@@ -25,22 +22,40 @@
         <input name="shoes" type="text" placeholder="Взуття" required>
         <button type="submit">Відправити замовлення</button>
     </form>
-</div>
+  </div>
 </body>
   <script>
-    // Приклад товарів
-let cart = [
-  {name: "Товар 1", count: 2, price: 140},
-  {name: "Товар 2", count: 1, price: 90}
-];
-
-function renderCart() {
-  const cartList = document.getElementById('cart-list');
-  cartList.innerHTML = '';
-  cart.forEach(item => {
-    cartList.innerHTML += `<li>${item.name} x${item.count} — ${item.price * item.count}₴</li>`;
+fetch('db.json')
+  .then(response => response.json())
+  .then(products => {
+    const catalog = document.getElementById('product-catalog');
+    products.forEach(product => {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.innerHTML = `
+        <h2>${product.brand} ${product.model}</h2>
+        <div class="color-label">Колір: ${product.color}</div>
+        <div class="product-price">${product.price} грн</div>
+        <select class="size-select">
+          ${product.variants.map(v => `<option value="${v.id}">${v.size}</option>`).join('')}
+        </select>
+        <button onclick="addToCart(this)">Замовити</button>
+      `;
+      catalog.appendChild(card);
+    });
   });
+
+function addToCart(button) {
+  const card = button.closest('.product-card');
+  const sizeSelect = card.querySelector('.size-select');
+  const variantId = sizeSelect.value;
+  // Тут можна реалізувати додавання до кошика у ваш json чи localStorage
+  alert(`Додано до кошика товар з id: ${variantId}`);
 }
+</script>
+
+  <script>
+
 renderCart();
 document.getElementById('checkout-form').onsubmit = function(e) {
   e.preventDefault();
