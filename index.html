@@ -34,6 +34,7 @@ fetch('db.json')
       card.className = 'product-card';
       card.innerHTML = `
         <h2>${product.brand} ${product.model}</h2>
+        <img src="${product.image}" alt="${product.brand} ${product.model}" width="200" height="200" />
         <div class="color-label">Колір: ${product.color}</div>
         <div class="product-price">${product.price} грн</div>
         <select class="size-select">
