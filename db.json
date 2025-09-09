@@ -4,6 +4,7 @@
     "model": "Ozweego Pro",
     "color": "сіро-білий",
     "price": 3500,
+    "image": "https://static.qns.digital/img/p/2/9/0/4/9/2/5/2904925-full_product.jpg",
     "variants": [
       { "id": 123, "size": "44.5" },
       { "id": 124, "size": "43.5" },
