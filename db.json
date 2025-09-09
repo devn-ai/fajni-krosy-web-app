@@ -1,0 +1,76 @@
+[
+  {
+    "brand": "Adidas",
+    "model": "Ozweego Pro",
+    "color": "сіро-білий",
+    "price": 3500,
+    "variants": [
+      { "id": 123, "size": "44.5" },
+      { "id": 124, "size": "43.5" },
+      { "id": 125, "size": "42.5" },
+      { "id": 126, "size": "41.5" },
+      { "id": 127, "size": "40.5" }
+    ]
+  },
+  {
+    "brand": "New Balance",
+    "model": "530",
+    "color": "сіро-зелені",
+    "price": 2500,
+    "variants": [
+      { "id": 128, "size": "45" },
+      { "id": 129, "size": "44" },
+      { "id": 130, "size": "43" },
+      { "id": 131, "size": "42" },
+      { "id": 132, "size": "41" }
+    ]
+  },
+  {
+    "brand": "Nike",
+    "model": "P-6000",
+    "color": "cірі",
+    "price": 3400,
+    "variants": [{ "id": 133, "size": "45" }]
+  },
+  {
+    "brand": "Nike",
+    "model": "P-6001",
+    "color": "cірі",
+    "price": 3400,
+    "variants": [{ "id": 134, "size": "44" }]
+  },
+  {
+    "brand": "Nike",
+    "model": "P-6002",
+    "color": "cірі",
+    "price": 3400,
+    "variants": [{ "id": 135, "size": "43" }]
+  },
+  {
+    "brand": "Nike",
+    "model": "P-6003",
+    "color": "cірі",
+    "price": 3400,
+    "variants": [{ "id": 136, "size": "42" }]
+  },
+  {
+    "brand": "Nike",
+    "model": "P-6004",
+    "color": "cірі",
+    "price": 3400,
+    "variants": [{ "id": 137, "size": "41" }]
+  },
+  {
+    "brand": "Puma",
+    "model": "Suede XL",
+    "color": "рожево-коричневі",
+    "price": 2700,
+    "variants": [
+      { "id": 138, "size": "42" },
+      { "id": 139, "size": "41" },
+      { "id": 140, "size": "40" },
+      { "id": 141, "size": "39" },
+      { "id": 142, "size": "38" }
+    ]
+  }
+]
