@@ -25,17 +25,6 @@
 </div>
   
 <div id="product-catalog"></div>
-
-  <div class="cart">
-    <h2>Кошик</h2>
-    <ul id="cart-list"></ul>
-    <form id="checkout-form">
-        <input name="name" type="text" placeholder="Ваше ім'я" required>
-        <input name="phone" type="text" placeholder="Телефон" required>
-        <input name="shoes" type="text" placeholder="Взуття" required>
-        <button type="submit">Відправити замовлення</button>
-    </form>
-  </div>
 </body>
   <script>
 fetch('db.json')
@@ -130,30 +119,6 @@ document.getElementById('order-form').addEventListener('submit', function (e) {
     })
     .catch(() => alert('Помилка мережі'));
 });
-
-renderCart();
-document.getElementById('checkout-form').onsubmit = function(e) {
-  e.preventDefault();
-  const webhookUrl = "https://hook.eu2.make.com/1ettzvhwvhnmag3f5otfig2ospqw2nd9"; 
-  const form = e.target;
-  const order = {
-    name: form.name.value,
-    phone: form.phone.value,
-    shoes: form.shoes.value,
-    cart: cart
-  };
-
-  fetch(webhookUrl, {
-    method: "POST",
-    body: JSON.stringify(order),
-    headers: {"Content-Type": "application/json"}
-  }).then(res => {
-    if (res.ok) {
-      window.Telegram.WebApp.close();
-      alert("Дякуємо за замовлення!");
-    }
-  });
-};
 
   </script>
 </html>
